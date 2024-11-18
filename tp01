@@ -90,3 +90,81 @@ printf("%d \t",mat2[i][j]);}
 printf("\n");}
 
 }
+
+
+
+:حل التيبي الثاني ✓
+
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+char  *chargerchaine(int n)
+{ int i ;
+ scanf("%d",&n); 
+ printf ("n=%d \n",n);
+ char *tab =malloc(n * sizeof(int));
+ for(i=0;i<n;i++)
+ {
+  scanf("%c \t",& *(tab+i));
+  printf("%c \n",*(tab+i));
+ }
+ 
+}
+
+
+int longueur(char *ch)
+{ 
+ gets(*ch);
+ while(ch!='Null')
+ *ch++; 
+ return *ch;
+}
+
+
+void chargertab(char *p, char tab[])
+{
+  scanf("%d",&n);
+  for(p=tab;p<tab+n;p++)
+  scanf("%c",p);
+ 
+}
+
+
+
+void inversertab(char tab[],char t[] , int m)
+{
+  scanf("%d",&m);
+ char *tab2=calloc( n,sizeof(char));
+ char *p2;  p2=tab2;
+ for (p=tab;p<tab+m;p++)
+ scanf("%c",p);
+ for (p=tab;p<tab+m;p++)
+ for (p2=tab2+m-1;p2>=tab2;p2--)
+ *p2=*p1;
+}
+ 
+ void affichertab(char tab[] , int m)
+ {
+  scanf("%d",&m);
+  for(tab=0;tab<m;tab++)
+  printf("%c",tab );
+ }
+ 
+ 
+ int main()
+ {char *ch ; int n;
+  printf("veuillez saisir la taille maximale de la chaine :\n");
+  scanf("%d",&n) ; ch=chargerchaine(n);
+  int m= longueur(ch);
+  char tab[m] , t[m];
+  chargertab(ch,tab);
+  affichertab(tab,m);
+  inversertab(tab ,t,m);
+  affichertab(t,m);
+  free(ch);
+  
+  return 0;
+ 
+ }
