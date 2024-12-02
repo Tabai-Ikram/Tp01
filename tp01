@@ -1,4 +1,4 @@
-                :حل التمرين الاول✓
+               // :حل التمرين الاول✓
 
 #include<stdio.h>
 int main() 
@@ -58,7 +58,7 @@ int main()
 return 0;
  } 
 
-             حل التمرين الثاني ✓
+             //حل التمرين الثاني ✓
 
 #include <stdio.h>
 int main() {
@@ -93,71 +93,54 @@ printf("\n");}
 
 
 
-:حل التيبي الثاني ✓
-
-
+          //:حل التيبي الثاني ✓
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 
-char  *chargerchaine(int n)
-{ int i ;
+char *chargerchaine(int n)
+{ char *ch;
  scanf("%d",&n); 
- printf ("n=%d \n",n);
- char *tab =malloc(n * sizeof(int));
- for(i=0;i<n;i++)
- {
-  scanf("%c \t",& *(tab+i));
-  printf("%c \n",*(tab+i));
- }
- 
+ gets(ch);
 }
-
 
 int longueur(char *ch)
-{ 
- gets(*ch);
- while(ch!='Null')
- *ch++; 
- return *ch;
+{ int i;
+ gets(ch);
+ while(ch != "\0"){ 
+ ch++; i++; 
+ }
+ return i;
 }
-
-
 void chargertab(char *p, char tab[])
-{
+{int n;
   scanf("%d",&n);
   for(p=tab;p<tab+n;p++)
-  scanf("%c",p);
- 
+  scanf("%c",*p);
 }
-
-
-
-void inversertab(char tab[],char t[] , int m)
-{
-  scanf("%d",&m);
- char *tab2=calloc( n,sizeof(char));
- char *p2;  p2=tab2;
- for (p=tab;p<tab+m;p++)
- scanf("%c",p);
- for (p=tab;p<tab+m;p++)
- for (p2=tab2+m-1;p2>=tab2;p2--)
+void inversertab(char tab[],char t[] , int m ) 
+{ char *p1,*p2;
+  scanf("%d",&m );
+  p2=t; p1=tab;  
+ for (p1=tab;p1<tab+m;p1++)
+ scanf("%c",*p1);
+ for (p1=tab;p1<tab+m;p1++)
+ for (p2=t+m-1;p2>=t;p2--)
  *p2=*p1;
 }
- 
  void affichertab(char tab[] , int m)
- {
+ { char *p;
   scanf("%d",&m);
-  for(tab=0;tab<m;tab++)
-  printf("%c",tab );
+  for(p=tab;p<tab+m ;p++)
+  printf("%c",*p);
  }
- 
- 
  int main()
- {char *ch ; int n;
+ {
+  char *ch ; int n;
   printf("veuillez saisir la taille maximale de la chaine :\n");
   scanf("%d",&n) ; ch=chargerchaine(n);
-  int m= longueur(ch);
+  int m = longueur(ch);
+  printf("m=%d",m);
   char tab[m] , t[m];
   chargertab(ch,tab);
   affichertab(tab,m);
