@@ -59,95 +59,40 @@ return 0;
  } 
 
              //حل التمرين الثاني ✓
-
 #include <stdio.h>
-int main() {
-int c,i,j,mat[4][4] ,mat2[4][4];
 
-printf("mat[4][4]=\n");
-c=1;
-for(i=0;i<4;i++){
-for(j=0;j<4;j++){
-mat[i][j]=c; 
-c++;}
-}
-for(i=0;i<4;i++){
-for(j=0;j<4;j++){
-printf("%d \t",mat[i][j]);
-}printf ("\n");
-}
+int main()
+{
+    int mat[4][4],x,c,j,i;
+    
+  printf("mat[4][4]=\n");
+ c=1;
+ for(i=0;i<4;i++)
+ for(j=0;j<4;j++){
+ mat[i][j]=c;  c++;}
 
-printf("\n");
-printf("mat2[4][4]=\n");
-for(j=0;j<4;j++)
-for(i=0;i<4;i++)
-mat2[i][j]=mat[j][i];
-
-
-for(i=0;i<4;i++){
-for(j=0;j<4;j++){
-printf("%d \t",mat2[i][j]);}
-printf("\n");}
-
-}
-
-
-
-          //:حل التيبي الثاني ✓
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
-char *chargerchaine(int n)
-{ char *ch;
- scanf("%d",&n); 
- gets(ch);
-}
-
-int longueur(char *ch)
-{ int i;
- gets(ch);
- while(ch != "\0"){ 
- ch++; i++; 
+ for (int i = 0; i< 4; i++){
+ for (int j= 0; j < 4; j++) 
+ printf("%d ", mat[i][j]);
+ printf("\n");
  }
- return i;
-}
-void chargertab(char *p, char tab[])
-{int n;
-  scanf("%d",&n);
-  for(p=tab;p<tab+n;p++)
-  scanf("%c",*p);
-}
-void inversertab(char tab[],char t[] , int m ) 
-{ char *p1,*p2;
-  scanf("%d",&m );
-  p2=t; p1=tab;  
- for (p1=tab;p1<tab+m;p1++)
- scanf("%c",*p1);
- for (p1=tab;p1<tab+m;p1++)
- for (p2=t+m-1;p2>=t;p2--)
- *p2=*p1;
-}
- void affichertab(char tab[] , int m)
- { char *p;
-  scanf("%d",&m);
-  for(p=tab;p<tab+m ;p++)
-  printf("%c",*p);
- }
- int main()
- {
-  char *ch ; int n;
-  printf("veuillez saisir la taille maximale de la chaine :\n");
-  scanf("%d",&n) ; ch=chargerchaine(n);
-  int m = longueur(ch);
-  printf("m=%d",m);
-  char tab[m] , t[m];
-  chargertab(ch,tab);
-  affichertab(tab,m);
-  inversertab(tab ,t,m);
-  affichertab(t,m);
-  free(ch);
-  
-  return 0;
  
+ for (int i = 0; i < 4;i++) 
+ for (int j = i + 1; j < 4; j++)
+ {
+    x = mat[i][j];
+    mat[i][j] = mat[j][i];
+    mat[j][i] = x;
  }
+    
+ printf("nouveau mat est:\n");
+ for (int i = 0; i< 4; i++){
+ for (int j= 0; j < 4; j++) 
+ printf("%d ", mat[i][j]);
+ printf("\n");
+ }
+
+ return 0;
+}
+
+}
